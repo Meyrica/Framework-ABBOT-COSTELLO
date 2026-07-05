@@ -1,27 +1,60 @@
-<html>
-<head>
-<title>Abbot Java GUI Test Framework</title>
-<meta name="authors" content="Timothy Wall">
-<meta name="keywords" content="java, gui, test, testing, unit, software, automated, junit, record, playback, qa, quality, awtunit, swingunit, jfcunit">
-<meta name="description" content="Abbot Java GUI Testing Framework: Record and play back actions to test your Java GUI, suitable for use by developers and QA.">
-<meta name="date" content="2004-07-20">
-</head>
+ Framework ABBOT & COSTELLO
+ 
+Framework pengujian GUI Java untuk Software Quality Assurance (SQA).
+ 
+## 📖 Tentang
+ 
+**Abbot** adalah framework pengujian GUI berbasis Java yang merupakan ekstensi dari JUnit. Framework ini dapat dipanggil langsung dari kode Java (unit test), atau lewat skrip berbasis XML. Nama "Abbot" berasal dari singkatan *"A Better 'Bot"*, merujuk pada peningkatan dari kelas `java.awt.Robot` bawaan Java.
+ 
+**Costello** adalah script editor visual yang disertakan dalam framework Abbot, memudahkan pengeditan skrip pengujian tanpa perlu menulis kode. Editor ini mendukung perekaman aksi pengguna secara langsung ke dalam sebuah skrip.
+ 
+| | Abbot | Costello |
+|---|---|---|
+| Jenis | Framework inti (library Java) | Script editor GUI |
+| Cara Pakai | Ditulis dalam kode Java / JUnit | Dioperasikan secara visual |
+| Output | Unit test Java | File skrip XML |
+| Cocok Untuk | Developer & QA Engineer | QA non-programmer |
+| Tipe Testing | Grey-box Testing | Black-box Testing |
+ 
+## 🎯 Manfaat untuk SQA
+ 
+- **Otomasi Pengujian GUI** — menggantikan pengujian manual berulang dengan skrip yang bisa dijalankan kapan saja
+- **Konsistensi Pengujian** — setiap skenario dijalankan dengan cara yang identik
+- **Regression Testing** — skrip yang sudah dibuat dapat digunakan kembali di setiap iterasi
+- **Dukungan TDD** — memungkinkan Test-Driven Development pada GUI Java
+- **Dokumentasi Pengujian** — skrip XML Costello berfungsi ganda sebagai dokumentasi alur pengujian
 
-<script language="Javascript">
-	function redirect() {
-		window.location = "doc/overview.shtml";
-	}
-</script>
-
-<body onLoad="javascript:redirect()">
-
-</body>
-</html>
-<!-- 
-Local variables:
-eval: (add-hook 'write-file-hooks 'time-stamp)
-time-stamp-start: "<meta name=\"date\" content=\""
-time-stamp-format: "%:y-%02m-%02d"
-time-stamp-end: "\">"
-End:
--->
+## Cara Pakai
+ 
+### 1. Buat aplikasi yang akan diuji
+Contoh: `AppSederhana.java` — aplikasi kalkulator sederhana berbasis Swing.
+ 
+Compile:
+```bash
+javac AppSederhana.java
+```
+ 
+### 2. Jalankan Costello Test Script Editor
+```bash
+java -cp "lib/abbot.jar;lib/costello.jar" abbot.editor.ScriptEditor
+```
+ 
+### 3. Buat & rekam skrip pengujian
+- **File → New Script**
+- Isi Section Bar:
+  - Target Class Name : `AppSederhana`
+  - Method : `main`
+  - Classpath : `abbot-1.3.0`
+- **Test → Launch**
+- **Capture → All Actions** (klik di awal untuk start, klik lagi di akhir untuk stop)
+### 4. Simpan skrip
+**File → Save**, beri nama misal `test_kalkulator.xml`
+ 
+### 5. Jalankan ulang (replay) skrip
+- **File → Open**, pilih skrip yang sudah disimpan
+- Pastikan Section Bar masih sesuai target aplikasi
+- **Test → Launch** atau klik tombol **Run**
+### 6. Membaca hasil test
+- **Hijau** pada panel Hierarchy → langkah berhasil
+- **Merah** → langkah gagal (cek detail di panel Properties/Attributes)
+- Status keseluruhan: **Passed** / **Failed** pada status bar editor
