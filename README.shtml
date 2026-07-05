@@ -2,7 +2,7 @@
  
 Framework pengujian GUI Java untuk Software Quality Assurance (SQA).
  
-## 📖 Tentang
+## Tentang
  
 **Abbot** adalah framework pengujian GUI berbasis Java yang merupakan ekstensi dari JUnit. Framework ini dapat dipanggil langsung dari kode Java (unit test), atau lewat skrip berbasis XML. Nama "Abbot" berasal dari singkatan *"A Better 'Bot"*, merujuk pada peningkatan dari kelas `java.awt.Robot` bawaan Java.
  
@@ -16,7 +16,7 @@ Framework pengujian GUI Java untuk Software Quality Assurance (SQA).
 | Cocok Untuk | Developer & QA Engineer | QA non-programmer |
 | Tipe Testing | Grey-box Testing | Black-box Testing |
  
-## 🎯 Manfaat untuk SQA
+## Manfaat untuk SQA
  
 - **Otomasi Pengujian GUI** — menggantikan pengujian manual berulang dengan skrip yang bisa dijalankan kapan saja
 - **Konsistensi Pengujian** — setiap skenario dijalankan dengan cara yang identik
